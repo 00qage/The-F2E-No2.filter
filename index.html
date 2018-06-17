@@ -72,10 +72,10 @@
                     </div>
                 </div>
             </aside>
-            <section id="" class="content">
+            <section id="" class="content" >
                 <h2>Showing
                     <span>{{filteredData.length}}</span> results by…</h2>
-                <ul class="list">
+                <ul class="list" v-clock>
                     <li v-for="(item, index) in filteredData" :key="index" class="d-flex flex-column flex-xl-row">
                         <div class="li-img" :style="{backgroundImage:`url(`+item.Picture1+`)`}"></div>
                         <div class="li-content d-flex flex-column  justify-content-between ">
