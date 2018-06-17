@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>No2.filter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <section class="wrap " id="app">
+        <header class="header d-flex align-items-center">
+            <div class="container d-flex align-items-center">
+                <a class="logo" href="#">
+                    <img src="/images/logo.svg" width="150" alt="">
+                </a>
+                <div class="search">
+                    <a href="#">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </a>
+                    <input type="text" placeholder="Explore your own activities">
+                </div>
+            </div>
+        </header>
+        <section class="section d-flex">
+            <aside class="sidebar">
+                <div class="sidebar-location">
+                    <h3>Location</h3>
+                    <select class="custom-select sidebar-select" id="" v-model="filter">
+                        <option selected value="" disabled>--- 請選擇區域 ---</option>
+                        <option value="">所有區域</option>
+                        <option :value="item" v-for="(item, index) in filteredZone" :key="index">{{item}}</option>
+                    </select>
+                </div>
+                <hr>
+                <!-- <div class="sidebar-date d-flex align-items-end flex-column">
+                    <h3 class="align-self-start">Date</h3>
+                    <div class="input-from d-flex">
+                        <label for="">from</label>
+                        <input type="text" class="form-control" name="" id="">
+                    </div>
+                    <div class="input-to d-flex">
+                        <label for="">to</label>
+                        <input type="text" class="form-control" name="" id="">
+                    </div>
+                </div>
+                <hr> -->
+                <div class="sidebar-categories">
+                    <h3>Categories</h3>
+                    <div class="categories">
+                        <!-- <div class="sidebar-checkbox">
+                            <input type="checkbox" id="all">
+                            <label for="all">
+                                <span class="checkbox "></span>All</label>
+                        </div> -->
+                        <div class="sidebar-checkbox">
+                            <input type="checkbox" :id="free" v-model="free" >
+                            <label :for="free" @click="free = !free">
+                                <span class="checkbox" :class="{'check':free}"></span>Free</label>
+                        </div>
+                        <div class="sidebar-checkbox">
+                            <input type="checkbox" :id="allDay">
+                            <label for="learning" @click="allDay = !allDay">
+                                <span class="checkbox" :class="{'check':allDay}"></span>All day</label>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <section id="" class="content">
+                <h2>Showing
+                    <span>{{filteredData.length}}</span> results by…</h2>
+                <ul class="list">
+                    <li v-for="(item, index) in filteredData" :key="index" class="d-flex flex-column flex-xl-row">
+                        <div class="li-img" :style="{backgroundImage:`url(`+item.Picture1+`)`}"></div>
+                        <div class="li-content d-flex flex-column  justify-content-between ">
+                            <h3>{{item.Name}}</h3>
+                            <div class="li-text">{{item.Description}}</div>
+                            <div class="li-data d-flex">
+                                <span><i class="fa fa-clock-o" aria-hidden="true"></i></span><p>{{item.Opentime}}</p> 
+                                <span class="ml-4"><i class="fa fa-usd" aria-hidden="true"></i></span><p>{{item.Ticketinfo | cashFilters }}</p>
+                            </div>
+                            <div class="li-Icon d-flex flex-column">
+                                <span><i class="fa fa-map-marker" aria-hidden="true"></i></span> <p>{{item.Add}}</p>
+                                <span class="ml-4"><i class="fa fa-mobile" aria-hidden="true"></i></span><p>{{item.Tel}}</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </section>
+
+
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="./js/all.js"></script>
+</body>
+
+</html>
