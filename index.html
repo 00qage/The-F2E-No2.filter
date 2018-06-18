@@ -16,21 +16,24 @@
 <body>
     <section class="wrap " id="app">
         <header class="header d-flex align-items-center">
-            <div class="container d-flex align-items-center">
+            <div class="hearder-box d-flex flex-column flex-md-row align-items-center">
                 <a class="logo" href="#">
                     <img src="/images/logo.svg" width="150" alt="">
                 </a>
-                <div class="search">
-                    <a href="#">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </a>
-                    <input type="text" placeholder="Explore your own activities">
+                <div class="search-box d-flex align-items-center ">
+                    <div class="search d-flex align-items-center">
+                        <a href="#">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                        <input type="text" placeholder="Explore your own activities">
+                    </div>
                 </div>
+
             </div>
         </header>
-        <section class="section d-flex">
+        <section class="section d-flex flex-column flex-md-row ">
             <aside class="sidebar">
-                <div class="sidebar-location">
+                <div class="sidebar-location sidebar-border">
                     <h3>Location</h3>
                     <select class="custom-select sidebar-select" id="" v-model="filter">
                         <option selected value="" disabled>--- 請選擇區域 ---</option>
@@ -51,7 +54,7 @@
                     </div>
                 </div>
                 <hr> -->
-                <div class="sidebar-categories">
+                <div class="sidebar-categories sidebar-border">
                     <h3>Categories</h3>
                     <div class="categories">
                         <!-- <div class="sidebar-checkbox">
@@ -60,7 +63,7 @@
                                 <span class="checkbox "></span>All</label>
                         </div> -->
                         <div class="sidebar-checkbox">
-                            <input type="checkbox" :id="free" v-model="free" >
+                            <input type="checkbox" :id="free" v-model="free">
                             <label :for="free" @click="free = !free">
                                 <span class="checkbox" :class="{'check':free}"></span>Free</label>
                         </div>
@@ -72,22 +75,42 @@
                     </div>
                 </div>
             </aside>
-            <section id="" class="content" >
+            <section id="" class="content">
                 <h2>Showing
                     <span>{{filteredData.length}}</span> results by…</h2>
-                <ul class="list" v-clock>
+                <ul class="list">
                     <li v-for="(item, index) in filteredData" :key="index" class="d-flex flex-column flex-xl-row">
                         <div class="li-img" :style="{backgroundImage:`url(`+item.Picture1+`)`}"></div>
                         <div class="li-content d-flex flex-column  justify-content-between ">
                             <h3>{{item.Name}}</h3>
                             <div class="li-text">{{item.Description}}</div>
-                            <div class="li-data d-flex">
-                                <span><i class="fa fa-clock-o" aria-hidden="true"></i></span><p>{{item.Opentime}}</p> 
-                                <span class="ml-4"><i class="fa fa-usd" aria-hidden="true"></i></span><p>{{item.Ticketinfo | cashFilters }}</p>
+                            <div class="li-data d-flex flex-column flex-lg-row">
+                                <div class="d-flex">
+                                    <span>
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    </span>
+                                    <p>{{item.Opentime}}</p>
+                                </div>
+                                <div class="d-flex">
+                                    <span class="ml-lg-4">
+                                        <i class="fa fa-usd" aria-hidden="true"></i>
+                                    </span>
+                                    <p>{{item.Ticketinfo | cashFilters }}</p>
+                                </div>
                             </div>
                             <div class="li-Icon d-flex flex-column flex-lg-row">
-                                <span><i class="fa fa-map-marker" aria-hidden="true"></i></span> <p>{{item.Add}}</p>
-                                <span class="ml-4"><i class="fa fa-mobile" aria-hidden="true"></i></span><p>{{item.Tel}}</p>
+                                <div class="d-flex">
+                                    <span>
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    </span>
+                                    <p>{{item.Add}}</p>
+                                </div>
+                                <div class="d-flex">
+                                    <span class="ml-lg-4">
+                                        <i class="fa fa-mobile" aria-hidden="true"></i>
+                                    </span>
+                                    <p>{{item.Tel}}</p>
+                                </div>
                             </div>
                         </div>
                     </li>

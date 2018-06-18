@@ -50,10 +50,10 @@ var app = new Vue({
                 })
             }
             if (vm.free) {
-                console.log(vm.free);
+                // console.log(vm.free);
                 // console.log(fData);
                 fData.forEach(function (item) {
-                    console.log(item.Ticketinfo);
+                    // console.log(item.Ticketinfo);
                     if (item.Ticketinfo === "免費參觀") {
                         freeData.push(item);
                     }
@@ -68,7 +68,7 @@ var app = new Vue({
             
             if (vm.allDay) {
                 freeData.forEach(function (item) {
-                    console.log(item.Ticketinfo);
+                    // console.log(item.Ticketinfo);
                     if (item.Opentime === "全天候開放") {
                         allDayData.push(item);
                     }
